@@ -1,0 +1,21 @@
+version: '3'
+services:
+  nginx:
+    image: sandeeptru/docker-hive-fixed
+    ports:
+      - "80:80"
+      - "8000:8000"
+      - "8001:8001"
+      - "8002:8002"
+    networks:
+      - hive-network
+
+  node-exporter:
+    image: sandeeptru/my-node-exporter
+    ports:
+      - "9100:9100"
+    networks:
+      - hive-network
+
+networks:
+  hive-network:
